@@ -10,7 +10,7 @@ class Stack
       top = null;
    }
 
-   public void push(StackNode newNode)
+   public void push(StackNode newNode) //change to add
    {
       if (newNode == null)
          return;   // emergency return
