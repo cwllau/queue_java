@@ -1,11 +1,11 @@
-//Class StackNode  ----------------------------------
-public class StackNode
+//Class Node  ----------------------------------
+public class Node
 {
    // data (we allow Stack class public access)
-   protected StackNode next;
+   protected Node next;
 
    // constructor
-   public StackNode()
+   public Node()
    {
       next = null;
    }

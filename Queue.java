@@ -3,35 +3,41 @@
 class Queue
 {
    //pointer to first node in Class
-   private StackNode top;  //front
-   private StackNode bottom;//back
+   private Node head;  //front
+   private Node tail;//back
 
    //constructor
    public Queue()
    {
-      top = null;
-      bottom = null;
+      head = null;
+      tail = null;
    }
 
-   //adds new node to the top
+   //adds new node to the head
    //like push for queue
-   public void add(StackNode newNode)
+   public void add(Node newNode)
    {
       if (newNode == null)
-         return;
+         return;           //emergency return
       newNode.next = null; //there is no next node b/c you are last
-      bottom.next = newNode; // the bottome is now 2nd to bottom
+      tail.next = newNode; // the tail is now 2nd to tail
+      tail = newNode;    // the newNode is the tail
    }
 
-   //removes "top = front" StackNode
-   public StackNode next()
+   //removes "head = front" Node
+   public Node next()
    {
-      StackNode temp;
+      Node temp;
 
-      temp = top;
-      if (top != null)
+      temp = head;
+      if (head == null)
       {
-         top = top.next;
+         temp = null;   //empty queue
+      }
+      
+      if (head != null)
+      {
+         head = head.next;
          temp.next = null; // don't give client access to stack!
       }
       return temp;
@@ -39,10 +45,10 @@ class Queue
 
    public void showStack()
    {
-      StackNode p;
+      Node p;
 
       //display all the nodes in the Stack
-      for (p = top; p != null; p = p.next)
+      for (p = head; p != null; p = p.next)
          p.show();
    }
 
